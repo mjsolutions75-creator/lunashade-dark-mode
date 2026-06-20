@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LunaShade</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app" role="main">
+      <header class="header">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+              <path
+                d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"
+                fill="url(#g)"
+              />
+              <defs>
+                <linearGradient id="g" x1="0" y1="0" x2="24" y2="24">
+                  <stop offset="0%" stop-color="#A78BFA" />
+                  <stop offset="100%" stop-color="#7C5CFF" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <h1>LunaShade</h1>
+            <p id="site-label">Loading…</p>
+          </div>
+        </div>
+        <label class="switch" title="Enable LunaShade">
+          <input type="checkbox" id="toggle-enabled" />
+          <span class="track"><span class="thumb"></span></span>
+        </label>
+      </header>
+
+      <section class="card" aria-label="Scope">
+        <div class="row">
+          <div>
+            <h2>Apply on all sites</h2>
+            <p class="hint">Off = only sites you allow are themed.</p>
+          </div>
+          <label class="switch small">
+            <input type="checkbox" id="toggle-global" />
+            <span class="track"><span class="thumb"></span></span>
+          </label>
+        </div>
+        <div class="row">
+          <div>
+            <h2 id="site-action-label">Theme this site</h2>
+            <p class="hint" id="site-action-hint">Per-site override.</p>
+          </div>
+          <button class="ghost" id="site-action-btn" type="button">Toggle</button>
+        </div>
+      </section>
+
+      <section class="card" aria-label="Appearance">
+        <div class="slider-row">
+          <div class="slider-head">
+            <span>Brightness</span>
+            <span class="value" id="brightness-value">100%</span>
+          </div>
+          <input
+            type="range"
+            id="brightness"
+            min="50"
+            max="150"
+            step="1"
+            value="100"
+          />
+        </div>
+        <div class="slider-row">
+          <div class="slider-head">
+            <span>Contrast</span>
+            <span class="value" id="contrast-value">100%</span>
+          </div>
+          <input
+            type="range"
+            id="contrast"
+            min="50"
+            max="150"
+            step="1"
+            value="100"
+          />
+        </div>
+        <button class="link" id="reset-appearance" type="button">Reset to defaults</button>
+      </section>
+
+      <section class="card" aria-label="Excluded sites">
+        <div class="row">
+          <div>
+            <h2>Excluded sites</h2>
+            <p class="hint">LunaShade is disabled on these domains.</p>
+          </div>
+        </div>
+        <form class="add-row" id="add-form" autocomplete="off">
+          <input
+            type="text"
+            id="exclusion-input"
+            placeholder="example.com"
+            spellcheck="false"
+            aria-label="Domain to exclude"
+          />
+          <button type="submit" class="primary">Add</button>
+        </form>
+        <ul class="chip-list" id="exclusion-list" aria-live="polite"></ul>
+        <p class="empty" id="exclusion-empty">No excluded sites yet.</p>
+      </section>
+
+      <footer class="footer">
+        <span>LunaShade · v1.0.0</span>
+        <span class="dot">•</span>
+        <span>Made with care</span>
+      </footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
